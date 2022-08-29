@@ -52,7 +52,7 @@ const Formulario = (props) => {
                     aoAlterado = { valor => setImagem(valor)}
                     />
                 <ListaSuspensa 
-                label="Listas" 
+                label="Listas de Tarefas" 
                 itens={props.listas}
                 valor={lista}
                 aoAlterado={valor => setLista(valor)}
