@@ -1,63 +1,48 @@
 import { useState } from 'react';
 import Banner from './componentes/banner';
 import Formulario from './componentes/formulario';
-import Time from './componentes/time';
+import Lista from './componentes/lista';
 function App() {
 
-  const times = [
+  const listas = [
     {
-      nome: 'Programação',
+      nome: 'Casa',
       corPrimaria: '#57C278',
       corSegundaria: '#D9F7E9',
     },
     {
-      nome: 'Front-End',
+      nome: 'Estudo',
       corPrimaria: '#82CFFA',
       corSegundaria: '#E8F8FF',
   },
   {
-      nome: 'Data Sciense',
+      nome: 'Trabalho',
       corPrimaria: '#A6D157',
       corSegundaria: '#F0F8E2',
   },
   {
-      nome: 'Devops',
-      corPrimaria: '#E06B69',
-      corSegundaria: '#FDE7E8'
-  },
-  {
-      nome: 'UX e Design',
+      nome: 'Lazer',
       corPrimaria: '#D86EBF',
       corSegundaria: '#FAE95F5',
-  },
-  {
-      nome: 'Mobile',
-      corPrimaria: '#FEBA05',
-      corSegundaria: '#FFF5D9',
-  },
-  {
-      nome: 'Inovação e Gestão',
-      corPrimaria: '#FF8A29',
-      corSegundaria: '#FFEEDF',
   }
   ]
 
-  const[colaboradores, setColaboradores] = useState([])
+  const[tarefas, setTarefas] = useState([])
 
-  const aoNovoColaborador = (colaborador) =>{
-    setColaboradores([...colaboradores, colaborador])
+  const aoNovoColaborador = (tarefa) =>{
+    setTarefas([...tarefas, tarefa])
   }
   return (
 
     <div className="App">
       <Banner />
-      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaborador(colaborador)}/>
-      {times.map(time => <Time 
-        key={time.nome}
-        nome ={time.nome}
-        corPrimaria={time.corPrimaria} 
-        corSegundaria={time.corSegundaria} 
-        colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+      <Formulario listas={listas.map(lista => lista.nome)} aoColaboradorCadastrado={tarefa => aoNovoColaborador(tarefa)}/>
+      {listas.map(lista => <Lista 
+        key={lista.nome}
+        nome ={lista.nome}
+        corPrimaria={lista.corPrimaria} 
+        corSegundaria={lista.corSegundaria} 
+        tarefas={tarefas.filter(tarefa => tarefa.lista === lista.nome)}
         /> )}
     </div>
   );

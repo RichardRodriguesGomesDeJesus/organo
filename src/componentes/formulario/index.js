@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Botao from '../botao';
+import CampoData from '../campoData';
 import CampoTexto from '../campoTexto';
 import ListaSuspensa from '../listaSuspensa';
 import './formulario.css';
@@ -7,41 +8,41 @@ import './formulario.css';
 const Formulario = (props) => {
 
     const [nome, setNome] = useState('')
-    const [cargo, setCargo] = useState('')
+    const [data, setData] = useState('')
     const [imagem, setImagem] = useState('')
-    const [time, setTime] = useState('')
+    const [lista, setLista] = useState('')
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
         props.aoColaboradorCadastrado({
             nome,
-            cargo,
+            data,
             imagem,
-            time
+            lista
         })
         setNome('')
-        setCargo('')
+        setData('')
         setImagem('')
-        setTime('')
+        setLista('')
     }
 
     return (
         <section className="formulario" >
             <form onSubmit={aoSalvar}>
-                <h2>Preencha os dados para criar o card do colaborador</h2>
+                <h2>Preencha os dados para criar o card de tarefa</h2>
                 <CampoTexto
                     obrigatorio={true}
                     label="Nome"
-                    placeholder="Digite seu nome" 
+                    placeholder="Digite o nome da tarefa" 
                     valor={nome}
                     aoAlterado = { valor => setNome(valor)}
                     />
-                <CampoTexto 
+                <CampoData
                     obrigatorio={true} 
-                    label="Cargo" 
-                    placeholder="Digite seu cargo" 
-                    valor={cargo}
-                    aoAlterado = { valor => setCargo(valor)}
+                    label="Data" 
+                    placeholder="Digite a data de entrega" 
+                    valor={data}
+                    aoAlterado = { valor => setData(valor)}
                     />
                 <CampoTexto
                     obrigatorio={true} 
@@ -51,10 +52,10 @@ const Formulario = (props) => {
                     aoAlterado = { valor => setImagem(valor)}
                     />
                 <ListaSuspensa 
-                label="Times" 
-                itens={props.times}
-                valor={time}
-                aoAlterado={valor => setTime(valor)}
+                label="Listas" 
+                itens={props.listas}
+                valor={lista}
+                aoAlterado={valor => setLista(valor)}
                 />
                 <Botao>Criar Card</Botao>
             </form>
