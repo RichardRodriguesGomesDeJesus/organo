@@ -1,19 +1,19 @@
-.tarefa {
+.card {
     width: 280px;
 }
 
-.tarefa .cabecalho {
+.card .cabecalho {
     background-color:  #F0F0F0;
     border-radius: 10px 10px 0px 0px;
 }
-.tarefa img {
+.card img {
     width: 100px;
     border-radius: 50%;
     position: relative;
     bottom: -50px;
 }
 
-.tarefa .rodape {
+.card .rodape {
     background: #FFFFFF;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
     border-radius: 0px 0px 10px 10px;
@@ -22,7 +22,7 @@
     margin-bottom: 16px;
 }
 
-.tarefa .rodape h4 {
+.card .rodape h4 {
     color: #6278F7;
     font-size: 18px;
     line-height: 22px;
@@ -30,7 +30,7 @@
     margin-bottom: 8px;
 }
 
-.tarefa .rodape h5 {
+.card .rodape h5 {
     font-size: 18px;
     line-height: 22px;
     color: #212121;

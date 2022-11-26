@@ -6,43 +6,43 @@ function App() {
 
   const listas = [
     {
-      nome: 'Casa',
+      nome: 'Vegan',
       corPrimaria: '#57C278',
       corSegundaria: '#D9F7E9',
     },
     {
-      nome: 'Estudo',
+      nome: 'Frios',
       corPrimaria: '#82CFFA',
       corSegundaria: '#E8F8FF',
   },
   {
-      nome: 'Trabalho',
+      nome: 'Massas',
       corPrimaria: '#A6D157',
       corSegundaria: '#F0F8E2',
   },
   {
-      nome: 'Lazer',
+      nome: 'Bebidas',
       corPrimaria: '#D86EBF',
       corSegundaria: '#FAE95F5',
   }
   ]
 
-  const[tarefas, setTarefas] = useState([])
+  const[cards, setCards] = useState([])
 
-  const aoNovoColaborador = (tarefa) =>{
-    setTarefas([...tarefas, tarefa])
+  const aoNovoColaborador = (card) =>{
+    setCards([...cards, card])
   }
   return (
 
     <div className="App">
       <Banner />
-      <Formulario listas={listas.map(lista => lista.nome)} aoColaboradorCadastrado={tarefa => aoNovoColaborador(tarefa)}/>
+      <Formulario listas={listas.map(lista => lista.nome)} aoColaboradorCadastrado={card => aoNovoColaborador(card)}/>
       {listas.map(lista => <Lista 
         key={lista.nome}
         nome ={lista.nome}
         corPrimaria={lista.corPrimaria} 
         corSegundaria={lista.corSegundaria} 
-        tarefas={tarefas.filter(tarefa => tarefa.lista === lista.nome)}
+        cards={cards.filter(card => card.lista === lista.nome)}
         /> )}
     </div>
   );

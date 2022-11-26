@@ -1,13 +1,13 @@
-import Tarefa from '../tarefa'
+import Card from '../Card'
 import './lista.css'
 
 
 const Lista = (props) => {
     return(
-        (props.tarefas.length > 0) && <section className='lista' style={{backgroundColor: props.corSegundaria}}>
+        (props.cards.length > 0) && <section className='lista' style={{backgroundColor: props.corSegundaria}}>
             <h3 style={{borderColor: props.corPrimaria}}>{props.nome}</h3>
-            <div className='tarefas'>
-            {props.tarefas.map( tarefa => <Tarefa corDeFundo={props.corPrimaria} key={tarefa.nome}   nome={tarefa.nome} data={tarefa.data} imagem={tarefa.imagem} />)}
+            <div className='cards'>
+            {props.cards.map( card => <Card corDeFundo={props.corPrimaria} key={card.nome}   nome={card.nome} descricao={card.descricao} imagem={card.imagem} />)}
             </div>
         </section>
     )
